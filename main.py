@@ -1,19 +1,19 @@
 import random
 
 symbs = '+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
-created_pwrd = ''
 
 def generate_password(len_p):
-    global created_pwrd
+    created_pwrd = ''
     for i in range(len_p):
-        num = random.randint(0, len(symbs))
+        num = random.choice(symbs)
         created_pwrd += symbs[num]
 
-    print(created_pwrd)
+    return created_pwrd
 
-len_pwrd = int(input("Enter the length of the password: "))
+len_pwrd = int(input("Enter the length of the password not less than 4 and not more than 8: "))
 
-while len_pwrd > 8 or len_pwrd < 1:
-    len_pwrd = int(input("Please, Enter one more time the length of the password: "))
+while len_pwrd > 8 or len_pwrd < 4:
+    len_pwrd = int(input("Please, Enter the correct length of the password: "))
 
-generate_password(len_pwrd)
+pwrd = generate_password(len_pwrd)
+print(f'Your password is: {pwrd}')
