@@ -9,10 +9,15 @@ def generate_password(len_p):
 
     return ''.join(created_pwrd)
 
-len_pwrd = int(input("Enter the length of the password not less than 4 and not more than 8: "))
-
-while len_pwrd > 8 or len_pwrd < 4:
-    len_pwrd = int(input("Please, Enter the correct length of the password: "))
-
-pwrd = generate_password(len_pwrd)
-print(f'Your password is: {pwrd}')
+while True:
+    try:
+        len_pwrd = int(input("Enter the length of the password not less than 4 and not more than 8: "))
+        if len_pwrd <= 8 and len_pwrd >= 4:
+            pwrd = generate_password(len_pwrd)
+            print(f'Your password is: {pwrd}')
+            break
+        else:
+            print('The length of number is more than 8' if len_pwrd >= 8 else 'The length of number is less than 4')
+            continue
+    except ValueError:
+        print("Please enter the numbers.")
