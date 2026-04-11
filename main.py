@@ -3,12 +3,11 @@ import random
 symbs = '+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
 
 def generate_password(len_p):
-    created_pwrd = ''
+    created_pwrd = []
     for i in range(len_p):
-        num = random.choice(symbs)
-        created_pwrd += symbs[num]
+        created_pwrd.append(random.choice(symbs))
 
-    return created_pwrd
+    return ''.join(created_pwrd)
 
 len_pwrd = int(input("Enter the length of the password not less than 4 and not more than 8: "))
 
